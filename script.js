@@ -346,7 +346,7 @@ function runReview() {
   setTimeout(() => {
     try {
       const effectiveLang = lang === 'auto' ? detectLanguage(code) : lang;
-      const analyzer = analyzers[lang] || analyzers.javascript;
+      const analyzer = analyzers[effectiveLang] || analyzers.javascript;
       const result = analyzer(code);
       renderResults(result, effectiveLang);
       btn.textContent = '▶ Run Review';
